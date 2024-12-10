@@ -1,5 +1,13 @@
 # FallingEffectView
 
+
+
+
+https://github.com/user-attachments/assets/f0115b52-f1af-47f3-a47e-e0d86d09a183
+
+
+
+
 **FallingEffectView** is a custom Android View library designed to add dynamic falling effects, such as snowflakes, to your UI. It supports customizable animations, random effects, and various attributes to create smooth and visually appealing effects. The library can be configured both in XML and programmatically in Kotlin, giving you flexibility in your implementation.
 
 ---
@@ -32,7 +40,7 @@
 
    ```gradle
    dependencies {
-       implementation 'com.github.<YourGitHubUsername>:FallingEffectView:1.0.0'
+       implementation 'com.github.poalris428:FallingEffectView:0.0.2'
    }
 
 
@@ -41,18 +49,19 @@
 ### 1. Using in XML
 
 ```xml
-<com.polaris.fallingeffectcustomlibrary.FallingEffectView
-    android:id="@+id/fallingEffectView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:creationResourcesNum="100"
-    app:snowflakeImage="@drawable/snowflake"
-    app:snowflakeAlphaMin="150"
-    app:snowflakeAlphaMax="255"
-    app:snowflakeSpeedMin="2"
-    app:snowflakeSpeedMax="8"
-    app:snowflakesFadingEnabled="false"
-    app:snowflakesAlreadyFalling="false" />
+  <com.polaris.fallingeffectcustomlibrary.FallingEffectView
+        android:id="@+id/fallingEffectView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:creationResourcesNum="50"
+        app:fallingImage="@drawable/ic_launcher_background"
+        app:fallingImageAlphaMin="80"
+        app:fallingImageAlphaMax="90"
+        app:fallingImageSizeMin="15dp"
+        app:fallingImageSizeMax="20dp"
+        app:fallingImageSpeedMin="1"
+        app:fallingImageSpeedMax="2"
+        app:alreadyFallingImage="true"/>
 
 ```
 ### 2. Configuring Programmatically
@@ -60,16 +69,46 @@
 You can configure `FallingEffectView` entirely through code for more dynamic use cases.
 
 ```kotlin
-val fallingEffectView = FallingEffectView(context, null)
+ val fallingEffectView = findViewById<FallingEffectView>(R.id.fallingEffectView)
 
-// Set properties programmatically
-fallingEffectView.creationResourcesNum = 100
-fallingEffectView.snowflakeAlphaMin = 150
-fallingEffectView.snowflakeAlphaMax = 255
-fallingEffectView.snowflakeSpeedMin = 2
-fallingEffectView.snowflakeSpeedMax = 8
-fallingEffectView.snowflakesFadingEnabled = true
-fallingEffectView.snowflakesAlreadyFalling = false
+        fallingEffectView.apply {
+            creationResourcesNum = 50 // app:creationResourcesNum="50"
+            val drawable = ContextCompat.getDrawable(context, R.drawable.ic_launcher_background)
+            fallingImage = drawable?.let { drawableToBitmap(it) }
+            fallingImageAlphaMin = 80 // app:fallingImageAlphaMin="80"
+            fallingImageAlphaMax = 90 // app:fallingImageAlphaMax="90"
+            fallingImageSizeMin = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                15f,
+                resources.displayMetrics
+            ).toInt() // app:fallingImageSizeMin="15dp"
+            fallingImageSizeMax = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                20f,
+                resources.displayMetrics
+            ).toInt() // app:fallingImageSizeMax="20dp"
+            fallingImageSpeedMin = 1 // app:fallingImageSpeedMin="1"
+            fallingImageSpeedMax = 2 // app:fallingImageSpeedMax="2"
+            alreadyFallingImage = true // app:alreadyFallingImage="true"
+        }
+
+    }
+
+    fun drawableToBitmap(drawable: Drawable): Bitmap {
+        if (drawable is BitmapDrawable) {
+            return drawable.bitmap
+        }
+
+        val bitmap = Bitmap.createBitmap(
+            drawable.intrinsicWidth,
+            drawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return bitmap
+    }
 
 
 
@@ -86,14 +125,17 @@ You can configure the animation effect using these XML attributes or set them pr
 
 | Attribute                  | Kotlin Property                | Description                                   | Default     |
 |----------------------------|---------------------------------|-----------------------------------------------|-------------|
-| `creationResourcesNum`     | `creationResourcesNum`         | Number of falling elements                   | 200         |
-| `snowflakeImage`           | `snowflakeImage`               | Drawable resource for snowflake image         | None        |
-| `snowflakeAlphaMin`        | `snowflakeAlphaMin`            | Minimum transparency for snowflakes           | 150         |
-| `snowflakeAlphaMax`        | `snowflakeAlphaMax`            | Maximum transparency for snowflakes           | 255         |
-| `snowflakeSpeedMin`        | `snowflakeSpeedMin`            | Minimum speed of falling elements             | 2           |
-| `snowflakeSpeedMax`        | `snowflakeSpeedMax`            | Maximum speed of falling elements             | 8           |
-| `snowflakesFadingEnabled`  | `snowflakesFadingEnabled`      | Enable fade effect for falling elements       | `false`     |
-| `snowflakesAlreadyFalling` | `snowflakesAlreadyFalling`     | If true, elements will already be falling     | `false`     |
+| `creationResourcesNum`     | `creationResourcesNum`         | Number of falling elements                     | 200         |
+| `fallingImage`             | `fallingImage`                 | Drawable resource for snowflake image          | None        |
+| `fallingImageAlphaMin`     | `fallingImageAlphaMin`         | Minimum transparency for snowflakes            | 150         |
+| `fallingImageAlphaMax`     | `fallingImageAlphaMax`         | Maximum transparency for snowflakes            | 250         |
+| `fallingImageAngleMax`     | `fallingImageAngleMax`         |  fallingImageAngleMax                          | 10          |
+| `fallingImageSizeMin`        | `fallingImageSizeMin`        | Minimum imge size of falling elements          | 2 DP        |
+| `fallingImageSizeMax`        | `fallingImageSizeMax`        | Maximum imge size of falling elements          | 8 DP        |
+| `fallingImageSpeedMin`      | `fallingImageSpeedMin`        |   Minimum speed of falling elements            | 2 DP        |
+| `fallingImageSpeedMax`      | `fallingImageSpeedMax`        |   Minimum speed of falling elements            | 8 DP        |
+| `snowflakesFadingEnabled`  | `snowflakesFadingEnabled`      | Enable fade effect for falling elements        | `false`     |
+| `snowflakesAlreadyFalling` | `snowflakesAlreadyFalling`     | If true, elements will already be falling      | `false`     |
 
 
 ## 📄 License
