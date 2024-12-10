@@ -54,7 +54,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = "com.github.polaris428"
                 artifactId = "FallingEffectCustomLibrary"
-                version = "0.0.2"
+                version = "0.0.3"
             }
 
             // Creates a Maven publication called "debug".
@@ -64,7 +64,7 @@ afterEvaluate {
 
                 groupId = "com.github.polaris428"
                 artifactId = "FallingEffectCustomLibrary"
-                version = "0.0.2"
+                version = "0.0.3"
             }
         }
     }
