@@ -123,19 +123,19 @@ fallingEffectView.restartFalling()
 
 You can configure the animation effect using these XML attributes or set them programmatically using their corresponding properties in Kotlin.
 
-| Attribute                  | Kotlin Property                | Description                                   | Default     |
-|----------------------------|---------------------------------|-----------------------------------------------|-------------|
-| `creationResourcesNum`     | `creationResourcesNum`         | Number of falling elements                     | 200         |
-| `fallingImage`             | `fallingImage`                 | Drawable resource for snowflake image          | None        |
-| `fallingImageAlphaMin`     | `fallingImageAlphaMin`         | Minimum transparency for snowflakes            | 150         |
-| `fallingImageAlphaMax`     | `fallingImageAlphaMax`         | Maximum transparency for snowflakes            | 250         |
-| `fallingImageAngleMax`     | `fallingImageAngleMax`         |  fallingImageAngleMax                          | 10          |
-| `fallingImageSizeMin`        | `fallingImageSizeMin`        | Minimum imge size of falling elements          | 2 DP        |
-| `fallingImageSizeMax`        | `fallingImageSizeMax`        | Maximum imge size of falling elements          | 8 DP        |
-| `fallingImageSpeedMin`      | `fallingImageSpeedMin`        |   Minimum speed of falling elements            | 2 DP        |
-| `fallingImageSpeedMax`      | `fallingImageSpeedMax`        |   Minimum speed of falling elements            | 8 DP        |
-| `snowflakesFadingEnabled`  | `snowflakesFadingEnabled`      | Enable fade effect for falling elements        | `false`     |
-| `snowflakesAlreadyFalling` | `snowflakesAlreadyFalling`     | If true, elements will already be falling      | `false`     |
+| Attribute                  | Kotlin Property                | Description                                       | Default     |
+|----------------------------|--------------------------------|--------------------------------------------------|-------------|
+| `creationResourcesNum`     | `creationResourcesNum`         | Number of falling elements                        | 200         |
+| `fallingImage`             | `fallingImage`                 | Drawable resource for  falling image   elements   | None        |
+| `fallingImageAlphaMin`     | `fallingImageAlphaMin`         | Minimum transparency for  falling image elements  | 150         |
+| `fallingImageAlphaMax`     | `fallingImageAlphaMax`         | Maximum transparency for  falling image elements  | 250         |
+| `fallingImageAngleMax`     | `fallingImageAngleMax`         | Maximum Angle of falling image elements           | 10          |
+| `fallingImageSizeMin`        | `fallingImageSizeMin`        | Minimum imge size of  falling image elements      | 2 DP        |
+| `fallingImageSizeMax`        | `fallingImageSizeMax`        | Maximum imge size of  falling image elements      | 8 DP        |
+| `fallingImageSpeedMin`      | `fallingImageSpeedMin`        | Minimum speed of  falling image elements          | 2 DP        |
+| `fallingImageSpeedMax`      | `fallingImageSpeedMax`        | Minimum speed of  falling image elements          | 8 DP        |
+| `fallingImageFadingEnabled`  | `fallingImageFadingEnabled`  | Pause the effect                                  | `false`     |
+| `snowflakesAlreadyFalling` | `snowflakesAlreadyFalling`     | If true, elements will already be falling         | `false`     |
 
 
 ## 📄 License
