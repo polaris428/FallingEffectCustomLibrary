@@ -11,9 +11,16 @@
         android:id="@+id/fallingEffectView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        app:creationResourcesNum="50"
+        app:fallingImage="@drawable/reg_8"
+        app:fallingImageAlphaMin="80"
+        app:fallingImageAlphaMax="90"
+        app:fallingImageSizeMin="15dp"
+        app:fallingImageSizeMax="20dp"
+        app:fallingImageSpeedMin="1"
+        app:fallingImageSpeedMax="2"
+        app:alreadyFallingImage="true"/>
 
 
-    </com.polaris.fallingeffectcustomlibrary.FallingEffectView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

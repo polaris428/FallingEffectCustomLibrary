@@ -11,6 +11,6 @@
         <attr name="fallingImageSpeedMin" format="integer"/>
         <attr name="fallingImageSpeedMax" format="integer"/>
         <attr name="fallingImageFadingEnabled" format="boolean"/>
-        <attr name="fallingImageAlready" format="boolean"/>
+        <attr name="alreadyFallingImage" format="boolean"/>
     </declare-styleable>
 </resources>

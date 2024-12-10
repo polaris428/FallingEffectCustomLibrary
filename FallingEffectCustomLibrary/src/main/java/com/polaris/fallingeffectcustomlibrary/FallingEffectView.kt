@@ -19,12 +19,12 @@ class FallingEffectView (context: Context, attrs: AttributeSet) : View(context, 
      var fallingImageAlphaMin: Int
      var fallingImageAlphaMax: Int
      var fallingImageAngleMax: Int
-     var fallingImageSizeMinPx: Int
-     var fallingImageSizeMaxPx: Int
      var fallingImageSizeMin: Int
      var fallingImageSizeMax: Int
+     var fallingImageSpeedMin: Int
+     var fallingImageSpeedMax: Int
      var fallingImageFadingEnabled: Boolean
-     var fallingImageAlready: Boolean
+     var alreadyFallingImage: Boolean
 
     private lateinit var updateSnowflakesThread: UpdateSnowflakesThread
     private var snowflakes: Array<Snowflake>? = null
@@ -37,16 +37,16 @@ class FallingEffectView (context: Context, attrs: AttributeSet) : View(context, 
             fallingImageAlphaMin = a.getInt(R.styleable.FlowingEffectView_fallingImageAlphaMin, DEFAULT_SNOWFLAKE_ALPHA_MIN)
             fallingImageAlphaMax = a.getInt(R.styleable.FlowingEffectView_fallingImageAlphaMax, DEFAULT_SNOWFLAKE_ALPHA_MAX)
             fallingImageAngleMax = a.getInt(R.styleable.FlowingEffectView_fallingImageAngleMax, DEFAULT_SNOWFLAKE_ANGLE_MAX)
-            fallingImageSizeMinPx = a.getDimensionPixelSize(R.styleable.FlowingEffectView_fallingImageSizeMin, dpToPx(
+            fallingImageSizeMin = a.getDimensionPixelSize(R.styleable.FlowingEffectView_fallingImageSizeMin, dpToPx(
                 DEFAULT_SNOWFLAKE_SIZE_MIN_IN_DP
             ))
-            fallingImageSizeMaxPx = a.getDimensionPixelSize(R.styleable.FlowingEffectView_fallingImageSizeMax, dpToPx(
+            fallingImageSizeMax = a.getDimensionPixelSize(R.styleable.FlowingEffectView_fallingImageSizeMax, dpToPx(
                 DEFAULT_SNOWFLAKE_SIZE_MAX_IN_DP
             ))
-            fallingImageSizeMin = a.getInt(R.styleable.FlowingEffectView_fallingImageSizeMin, DEFAULT_SNOWFLAKE_SPEED_MIN)
-            fallingImageSizeMax = a.getInt(R.styleable.FlowingEffectView_fallingImageSizeMax, DEFAULT_SNOWFLAKE_SPEED_MAX)
+            fallingImageSpeedMin = a.getInt(R.styleable.FlowingEffectView_fallingImageSpeedMin, DEFAULT_SNOWFLAKE_SPEED_MIN)
+            fallingImageSpeedMax = a.getInt(R.styleable.FlowingEffectView_fallingImageSpeedMax, DEFAULT_SNOWFLAKE_SPEED_MAX)
             fallingImageFadingEnabled = a.getBoolean(R.styleable.FlowingEffectView_fallingImageFadingEnabled, DEFAULT_SNOWFLAKES_FADING_ENABLED)
-            fallingImageAlready = a.getBoolean(R.styleable.FlowingEffectView_fallingImageAlready, DEFAULT_SNOWFLAKES_ALREADY_FALLING)
+            alreadyFallingImage = a.getBoolean(R.styleable.FlowingEffectView_alreadyFallingImage, DEFAULT_SNOWFLAKES_ALREADY_FALLING)
 
             setLayerType(LAYER_TYPE_HARDWARE, null)
 
@@ -134,12 +134,12 @@ class FallingEffectView (context: Context, attrs: AttributeSet) : View(context, 
             alphaMin = fallingImageAlphaMin,
             alphaMax = fallingImageAlphaMax,
             angleMax = fallingImageAngleMax,
-            sizeMinInPx = fallingImageSizeMinPx,
-            sizeMaxInPx = fallingImageSizeMaxPx,
-            speedMin = fallingImageSizeMin,
-            speedMax = fallingImageSizeMax,
+            sizeMinInPx = fallingImageSizeMin,
+            sizeMaxInPx = fallingImageSizeMax,
+            speedMin = fallingImageSpeedMin,
+            speedMax = fallingImageSpeedMax,
             fadingEnabled = fallingImageFadingEnabled,
-            alreadyFalling = fallingImageAlready
+            alreadyFalling = alreadyFallingImage
         )
 
         return Array(creationResourcesNum) { Snowflake(randomizer, snowflakeParams) }
