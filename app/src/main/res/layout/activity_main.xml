@@ -11,13 +11,7 @@
         android:id="@+id/fallingEffectView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:snowflakeAlphaMax="255"
-        app:snowflakeAlphaMin="150"
-        app:snowflakeImage="@drawable/reg_8"
-        app:snowflakeSizeMax="18dp"
-        app:snowflakeSizeMin="13dp"
-        app:snowflakeSpeedMax="2"
-        app:snowflakeSpeedMin="1">
+        >
 
 
     </com.polaris.fallingeffectcustomlibrary.FallingEffectView>

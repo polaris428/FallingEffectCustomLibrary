@@ -2,15 +2,15 @@
 <resources>
     <declare-styleable name="FlowingEffectView">
         <attr name="creationResourcesNum" format="integer"/>
-        <attr name="snowflakeImage" format="reference"/>
-        <attr name="snowflakeAlphaMin" format="integer"/>
-        <attr name="snowflakeAlphaMax" format="integer"/>
-        <attr name="snowflakeAngleMax" format="integer"/>
-        <attr name="snowflakeSizeMin" format="dimension"/>
-        <attr name="snowflakeSizeMax" format="dimension"/>
-        <attr name="snowflakeSpeedMin" format="integer"/>
-        <attr name="snowflakeSpeedMax" format="integer"/>
-        <attr name="snowflakesFadingEnabled" format="boolean"/>
-        <attr name="snowflakesAlreadyFalling" format="boolean"/>
+        <attr name="fallingImage" format="reference"/>
+        <attr name="fallingImageAlphaMin" format="integer"/>
+        <attr name="fallingImageAlphaMax" format="integer"/>
+        <attr name="fallingImageAngleMax" format="integer"/>
+        <attr name="fallingImageSizeMin" format="dimension"/>
+        <attr name="fallingImageSizeMax" format="dimension"/>
+        <attr name="fallingImageSpeedMin" format="integer"/>
+        <attr name="fallingImageSpeedMax" format="integer"/>
+        <attr name="fallingImageFadingEnabled" format="boolean"/>
+        <attr name="fallingImageAlready" format="boolean"/>
     </declare-styleable>
 </resources>
